@@ -1,4 +1,4 @@
-package repository
+package menu_repository
 
 import "go-delivery-food/entity"
 

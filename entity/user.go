@@ -2,11 +2,9 @@ package entity
 
 import "time"
 
-type Menu struct {
+type User struct {
 	Id         string
-	Name       string
-	Price      int64
-	Quantity   int32
+	Role       string
 	CreateDate time.Time
 	DeleteDate time.Time
 }

@@ -1,24 +1,25 @@
-package service
+package menu_service
 
 import (
 	"go-delivery-food/entity"
-	"go-delivery-food/model"
-	"go-delivery-food/repository"
+	model_request "go-delivery-food/model/request"
+	model_response "go-delivery-food/model/response"
+	"go-delivery-food/repository/menu_repository"
 	"go-delivery-food/validation"
 )
 
-func NewMenuService(menuRepository *repository.MenuRepository) MenuService {
+func NewMenuService(menuRepository *menu_repository.MenuRepository) MenuService {
 	return &menuServiceImpl{
 		MenuRepository: *menuRepository,
 	}
 }
 
 type menuServiceImpl struct {
-	MenuRepository repository.MenuRepository
+	MenuRepository menu_repository.MenuRepository
 }
 
-func (service *menuServiceImpl) Create(request model.CreateMenuRequest) (response model.CreateMenuResponse) {
-	validation.Validate(request)
+func (service *menuServiceImpl) Create(request model_request.CreateMenuRequest) (response model_response.CreateMenuResponse) {
+	validation.CreateMenuValidate(request)
 
 	menu := entity.Menu {
 		Id : request.Id,
@@ -28,7 +29,7 @@ func (service *menuServiceImpl) Create(request model.CreateMenuRequest) (respons
 	}
 	service.MenuRepository.Insert(menu)
 
-	response = model.CreateMenuResponse{
+	response = model_response.CreateMenuResponse{
 		Id : menu.Id,
 		Name: menu.Name,
 		Price: menu.Price,
@@ -37,10 +38,10 @@ func (service *menuServiceImpl) Create(request model.CreateMenuRequest) (respons
 	return response
 }
 
-func(service *menuServiceImpl) List() (responses []model.ListMenusResponse){
+func(service *menuServiceImpl) List() (responses []model_response.ListMenusResponse){
 	menus := service.MenuRepository.List()
 	for _, menu := range menus {
-		responses = append(responses, model.ListMenusResponse{
+		responses = append(responses, model_response.ListMenusResponse{
 			Id : menu.Id,
 			Name : menu.Name,
 			Price: menu.Price,

@@ -23,3 +23,11 @@ func New(filenames ...string) Config {
 	exception.PanicIfNeeded(err)
 	return &configImpl{}
 }
+
+func Version() (urlPrefix string) {
+	prefix := "api"
+	version := "v1"
+	urlPrefix = prefix+"/"+version
+
+	return urlPrefix
+}

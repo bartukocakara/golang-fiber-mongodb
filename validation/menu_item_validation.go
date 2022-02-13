@@ -7,7 +7,7 @@ import (
 	validation "github.com/go-ozzo/ozzo-validation/v4"
 )
 
-func CreateMenuValidate(request model_request.CreateMenuRequest) {
+func CreateMenuItemValidate(request model_request.CreateMenuItemRequest) {
 	err := validation.ValidateStruct(&request, 
 			validation.Field(&request.Id, validation.Required),
 			validation.Field(&request.Name, validation.Required),
@@ -22,7 +22,7 @@ func CreateMenuValidate(request model_request.CreateMenuRequest) {
 	}
 }
 
-func UpdateMenuValidate(request model_request.UpdateMenuRequest) {
+func UpdateMenuItemValidate(request model_request.UpdateMenuItemRequest) {
 	err := validation.ValidateStruct(&request, 
 			validation.Field(&request.Id, validation.Required),
 			validation.Field(&request.Name, validation.Required),

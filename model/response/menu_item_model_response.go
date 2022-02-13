@@ -1,20 +1,13 @@
-package model
+package model_response
 
-type CreateMenuRequest struct {
+type CreateMenuItemResponse struct {
 	Id       string `json:"id"`
 	Name     string `json:"name"`
 	Price    int64  `json:"price"`
 	Quantity int32  `json:"quantity"`
 }
 
-type CreateMenuResponse struct {
-	Id       string `json:"id"`
-	Name     string `json:"name"`
-	Price    int64  `json:"price"`
-	Quantity int32  `json:"quantity"`
-}
-
-type ListMenusResponse struct {
+type ListMenuItemsResponse struct {
 	Id       string `json:"id"`
 	Name     string `json:"name"`
 	Price    int64  `json:"price"`

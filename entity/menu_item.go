@@ -2,7 +2,7 @@ package entity
 
 import "time"
 
-type Menu struct {
+type MenuItem struct {
 	Id         string
 	Name       string
 	Price      int64
