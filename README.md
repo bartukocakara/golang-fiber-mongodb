@@ -9,6 +9,6 @@ Sample Go-Lang Clean Architecture Project
 - Configuration : GoDotEnv
 - Database : MongoDB
 
-## Architecture
+## Logic Layer
 
 Controller -> Service -> Repository
